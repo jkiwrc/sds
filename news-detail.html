@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>新闻中心 - 重庆市计量质量检测研究院</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a href="index.html" class="site-title site-title-link"
+          >重庆市计量质量检测研究院</a
+        >
+      </div>
+    </header>
+    <nav class="site-nav" aria-label="主导航">
+      <div class="site-nav-inner">
+        <ul>
+          <li><a href="about.html">关于我们</a></li>
+          <li><a href="projects.html">检测项目</a></li>
+          <li><a href="cert.html">认证备案</a></li>
+          <li><a href="news.html" class="is-active">新闻中心</a></li>
+          <li><a href="contact.html">联系我们</a></li>
+          <li><a href="index.html#query">报告查询</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main-project-detail">
+      <article class="project-detail-card">
+        <p class="project-detail-back">
+          <a class="link-back" href="news.html">返回新闻列表</a>
+        </p>
+        <p class="news-detail-meta">
+          <time id="news-time" datetime="06-06">06-06</time>
+        </p>
+        <h1 class="project-detail-title" id="news-title">新闻标题</h1>
+        <div class="project-detail-content" id="news-body"></div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="about.html">关于我们</a>
+        <span>|</span>
+        <a href="projects.html">检测项目</a>
+        <span>|</span>
+        <a href="cert.html">认证备案</a>
+        <span>|</span>
+        <a href="news.html">新闻中心</a>
+        <span>|</span>
+        <a href="contact.html">联系我们</a>
+        <span>|</span>
+        <a href="index.html#copyright">版权声明</a>
+      </div>
+      <p class="copyright">
+        Copyright © 2026 重庆市计量质量检测研究院 版权所有
+      </p>
+    </footer>
+
+    <script>
+      (function () {
+        var ITEMS = [
+          {
+            title: "农业用地土壤检测土壤取样方法",
+            body:
+              "<p>农业用地土壤调查与监测中，代表性取样是决定数据可靠性的关键环节。应结合地块利用方式、地形与历史施肥施药情况布点，按规范分层或混合取样，保证样品从采集、运输到实验室分析的全程可追溯。本院可依据相关标准提供取样技术咨询与检测服务方案。</p>",
+          },
+          {
+            title: "防火涂料检测发现，添加这些物质可以提高其性能",
+            body:
+              "<p>防火涂料的耐火极限与膨胀炭层结构、成膜树脂及阻燃助剂配伍密切相关。通过配方优化与耐燃试验比对，可在满足标准要求的前提下改善附着力与耐候性。企业投产前建议完成型式检验与批次抽检，确保工程验收一致。</p>",
+          },
+          {
+            title: "橡胶如何通过老化分析检测来评估寿命？",
+            body:
+              "<p>橡胶寿命评估常结合热氧老化、臭氧老化与力学性能保持率等指标，在加速应力下外推使用工况。不同胶种与工作温度应选择对应试验条件，并与实际装机或贮存环境对照解读，避免单点结论过度外推。</p>",
+          },
+          {
+            title: "电线电缆检测的具体检测内容有哪些",
+            body:
+              "<p>电线电缆检测通常包括导体直流电阻、绝缘与护套机械性能、耐电压、燃烧性能、烟密度及无卤低烟等项目，具体依产品标准与使用场合而定。进口采购与国内 CCC 目录产品还应核对强制性条款与抽样规则。</p>",
+          },
+          {
+            title: "教你正确了解矿泉水水质检测攻略大全",
+            body:
+              "<p>矿泉水检验除常规理化与微生物指标外，应关注界限指标、污染物限量及标签声称是否一致。送检时需注明水源地与工艺，避免因采样容器或保存条件引入偏差。报告结论应结合标准条款逐条对照理解。</p>",
+          },
+          {
+            title: "公司企业进行产品寿命评估的检测标准及检测范围",
+            body:
+              "<p>产品寿命评估可围绕环境应力（温湿度循环、振动、盐雾等）与功能退化曲线设计试验矩阵。标准选用应匹配行业规范与客户可靠性目标，输出平均寿命或失效率估计时需说明模型假设与置信水平。</p>",
+          },
+          {
+            title: "首届中国认可与检验检测国际论坛在江苏苏州举行",
+            body:
+              "<p>论坛汇聚认可机构、检测实验室与产业代表，围绕检测结果国际互认、数字化质量基础设施及新兴领域能力评价等议题展开交流，为提升检验检测服务贸易便利化提供政策与技术方向参考。</p>",
+          },
+          {
+            title: "不可忽视的6大土壤污染源检测",
+            body:
+              "<p>农业面源、工业遗留场地、固废堆存、污水灌溉、大气沉降及交通沿线沉积等均可能贡献土壤复合污染风险。调查阶段应结合现场快速筛查与实验室确证，形成空间分布与管控优先序，支撑修复与安全利用决策。</p>",
+          },
+        ];
+
+        var params = new URLSearchParams(window.location.search);
+        var n = parseInt(params.get("n") || "0", 10);
+        var idx = n - 1;
+        var titleEl = document.getElementById("news-title");
+        var bodyEl = document.getElementById("news-body");
+
+        if (idx < 0 || idx >= ITEMS.length) {
+          titleEl.textContent = "未找到该新闻";
+          bodyEl.innerHTML =
+            '<p class="not-found" style="margin:0">请从<a href="news.html">新闻中心</a>列表重新选择。</p>';
+          document.getElementById("news-time").textContent = "";
+          document.title = "新闻中心 - 重庆市计量质量检测研究院";
+          return;
+        }
+
+        var item = ITEMS[idx];
+        titleEl.textContent = item.title;
+        bodyEl.innerHTML = item.body;
+        document.title = item.title + " - 重庆市计量质量检测研究院";
+      })();
+    </script>
+  </body>
+</html>

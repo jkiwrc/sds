@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>重庆市计量质量检测研究院</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <h1 class="site-title">重庆市计量质量检测研究院</h1>
+      </div>
+    </header>
+    <nav class="site-nav" aria-label="主导航">
+      <div class="site-nav-inner">
+      <ul>
+        <li><a href="about.html">关于我们</a></li>
+        <li><a href="projects.html">检测项目</a></li>
+        <li><a href="cert.html">认证备案</a></li>
+        <li><a href="news.html">新闻中心</a></li>
+        <li><a href="contact.html">联系我们</a></li>
+        <li><a href="index.html#query" class="is-active">报告查询</a></li>
+      </ul>
+      </div>
+    </nav>
+
+    <main class="main-home">
+      <div class="home-hero">
+        <p class="home-intro">
+          本院依法开展检验检测与计量检定工作。您可在下方输入<strong>报告编号</strong>查询已公开的报告信息。
+        </p>
+
+        <section class="query-panel query-panel--home" id="query" aria-labelledby="query-title">
+          <h2 id="query-title">报告查询</h2>
+          <form
+            class="query-form"
+            id="query-form"
+            action="report.html"
+            method="get"
+            role="search"
+          >
+            <label for="report-no">报告编号</label>
+            <input
+              id="report-no"
+              name="no"
+              type="text"
+              placeholder="请输入完整报告编号"
+              autocomplete="off"
+              required
+              inputmode="text"
+            />
+            <button type="submit">查询</button>
+          </form>
+          <div
+            id="report-result"
+            class="report-result-area"
+            aria-live="polite"
+            aria-busy="false"
+          ></div>
+        </section>
+      </div>
+
+      <nav class="home-shortcuts" aria-label="站点快捷入口">
+        <a href="about.html" class="home-shortcut">
+          <span class="home-shortcut-title">关于我们</span>
+          <span class="home-shortcut-desc">机构概况与业务介绍</span>
+        </a>
+        <a href="projects.html" class="home-shortcut">
+          <span class="home-shortcut-title">检测项目</span>
+          <span class="home-shortcut-desc">服务能力与项目清单</span>
+        </a>
+        <a href="cert.html" class="home-shortcut">
+          <span class="home-shortcut-title">认证备案</span>
+          <span class="home-shortcut-desc">国内外认证与备案</span>
+        </a>
+        <a href="news.html" class="home-shortcut">
+          <span class="home-shortcut-title">新闻中心</span>
+          <span class="home-shortcut-desc">通知公告与行业动态</span>
+        </a>
+        <a href="contact.html" class="home-shortcut">
+          <span class="home-shortcut-title">联系我们</span>
+          <span class="home-shortcut-desc">地址、电话与业务咨询</span>
+        </a>
+      </nav>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="about.html">关于我们</a>
+        <span>|</span>
+        <a href="projects.html">检测项目</a>
+        <span>|</span>
+        <a href="cert.html">认证备案</a>
+        <span>|</span>
+        <a href="news.html">新闻中心</a>
+        <span>|</span>
+        <a href="contact.html">联系我们</a>
+        <span>|</span>
+        <a href="index.html#copyright">版权声明</a>
+      </div>
+      <p class="copyright" id="copyright">
+        Copyright © 2026 重庆市计量质量检测研究院 版权所有
+      </p>
+    </footer>
+    <script src="reports.js"></script>
+    <script>
+      (function () {
+        var form = document.getElementById("query-form");
+        var input = document.getElementById("report-no");
+        var root = document.getElementById("report-result");
+        if (!form || !input || !root) return;
+
+        function showMessage(html, isError) {
+          root.classList.toggle("is-error", !!isError);
+          root.innerHTML = html;
+        }
+
+        function runQuery(raw, pushUrl) {
+          var no = normalizeReportNo(raw);
+          if (!no) {
+            showMessage(
+              '<p class="not-found">请输入报告编号后再查询。</p>',
+              true
+            );
+            return;
+          }
+          var row = REPORT_DB[no];
+          if (!row) {
+            showMessage(
+              '<p class="not-found">未找到编号为「' +
+                escapeHtmlReport(no) +
+                "」的报告信息，请核对编号后重试。</p>",
+              true
+            );
+            return;
+          }
+          showMessage(renderReportTable(no, row), false);
+          if (pushUrl && window.history && history.replaceState) {
+            history.replaceState(
+              null,
+              "",
+              "?no=" + encodeURIComponent(no) + "#query"
+            );
+          }
+        }
+
+        form.addEventListener("submit", function (e) {
+          e.preventDefault();
+          runQuery(input.value, true);
+          root.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        });
+
+        (function initFromUrl() {
+          var params = new URLSearchParams(window.location.search);
+          var q = params.get("no");
+          if (q) {
+            input.value = q;
+            runQuery(q, false);
+          }
+        })();
+      })();
+    </script>
+  </body>
+</html>

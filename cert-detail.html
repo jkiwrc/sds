@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>认证备案 - 重庆市计量质量检测研究院</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a href="index.html" class="site-title site-title-link"
+          >重庆市计量质量检测研究院</a
+        >
+      </div>
+    </header>
+    <nav class="site-nav" aria-label="主导航">
+      <div class="site-nav-inner">
+        <ul>
+          <li><a href="about.html">关于我们</a></li>
+          <li><a href="projects.html">检测项目</a></li>
+          <li><a href="cert.html" class="is-active">认证备案</a></li>
+          <li><a href="news.html">新闻中心</a></li>
+          <li><a href="contact.html">联系我们</a></li>
+          <li><a href="index.html#query">报告查询</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main-project-detail">
+      <article class="project-detail-card">
+        <p class="project-detail-back">
+          <a class="link-back" href="cert.html">返回认证备案列表</a>
+        </p>
+        <h1 class="project-detail-title" id="cert-title">认证备案</h1>
+        <div class="project-detail-content" id="cert-body"></div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="about.html">关于我们</a>
+        <span>|</span>
+        <a href="projects.html">检测项目</a>
+        <span>|</span>
+        <a href="cert.html">认证备案</a>
+        <span>|</span>
+        <a href="news.html">新闻中心</a>
+        <span>|</span>
+        <a href="contact.html">联系我们</a>
+        <span>|</span>
+        <a href="index.html#copyright">版权声明</a>
+      </div>
+      <p class="copyright">
+        Copyright © 2026 重庆市计量质量检测研究院 版权所有
+      </p>
+    </footer>
+
+    <script>
+      (function () {
+        var ITEMS = [
+          {
+            title: "消毒剂产品备案",
+            body:
+              "<p>依据消毒产品卫生安全评价报告网上备案管理及技术要求，协助企业完成产品检验、安全评价资料整理与平台备案申报，满足上市销售与监督检查所需合规材料。</p>",
+          },
+          {
+            title: "FDA认证",
+            body:
+              "<p>针对输美食品、医疗器械、化妆品等相关产品路径，提供与 FDA 法规框架衔接的符合性技术支持说明，具体注册/列名与检测项目以产品类别及最新联邦法规为准。</p>",
+          },
+          {
+            title: "RoHS认证",
+            body:
+              "<p>配合电子电气产品中有害物质限制要求，开展材料与整机 RoHS 相关筛查与符合性测试，出具报告供供应链与客户验厂、出口申报使用。</p>",
+          },
+          {
+            title: "CE认证",
+            body:
+              "<p>围绕欧盟 CE 标志涉及的安全、电磁兼容、环保等指令，组织产品与标准对照测试，为技术文件与符合性声明提供检测依据（最终发证由公告机构等环节完成）。</p>",
+          },
+          {
+            title: "CQC认证",
+            body:
+              "<p>中国质量认证中心自愿性认证范围内的产品与流程咨询，协助准备样品检测、工厂检查配合及证书维护，缩短认证周期。</p>",
+          },
+          {
+            title: "CCC认证",
+            body:
+              "<p>强制性产品认证目录内产品的符合性检测与资料支持，与指定认证机构流程衔接，具体受理范围以国家认监委目录调整为准。</p>",
+          },
+          {
+            title: "UL认证",
+            body:
+              "<p>面向北美市场常见 UL 标准的安全与性能测试需求，提供样品试验、数据整改建议及与 UL 实验室对接的技术沟通支持。</p>",
+          },
+          {
+            title: "FCC认证",
+            body:
+              "<p>无线及数字设备的射频、电磁兼容等项目测试，满足美国联邦通信委员会（FCC）规则下的技术参数与文件要求，助力产品进入美国市场。</p>",
+          },
+        ];
+
+        var params = new URLSearchParams(window.location.search);
+        var p = parseInt(params.get("p") || "0", 10);
+        var idx = p - 1;
+        var titleEl = document.getElementById("cert-title");
+        var bodyEl = document.getElementById("cert-body");
+
+        if (idx < 0 || idx >= ITEMS.length) {
+          titleEl.textContent = "未找到该条目";
+          bodyEl.innerHTML =
+            '<p class="not-found" style="margin:0">请从<a href="cert.html">认证备案</a>列表重新选择。</p>';
+          document.title = "认证备案 - 重庆市计量质量检测研究院";
+          return;
+        }
+
+        var item = ITEMS[idx];
+        titleEl.textContent = item.title;
+        bodyEl.innerHTML = item.body;
+        document.title = item.title + " - 重庆市计量质量检测研究院";
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>检测项目 - 重庆市计量质量检测研究院</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="site-header-inner">
+        <a href="index.html" class="site-title site-title-link"
+          >重庆市计量质量检测研究院</a
+        >
+      </div>
+    </header>
+    <nav class="site-nav" aria-label="主导航">
+      <div class="site-nav-inner">
+        <ul>
+          <li><a href="about.html">关于我们</a></li>
+          <li><a href="projects.html" class="is-active">检测项目</a></li>
+          <li><a href="cert.html">认证备案</a></li>
+          <li><a href="news.html">新闻中心</a></li>
+          <li><a href="contact.html">联系我们</a></li>
+          <li><a href="index.html#query">报告查询</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <main class="main-project-detail">
+      <article class="project-detail-card">
+        <p class="project-detail-back">
+          <a class="link-back" href="projects.html">返回检测项目列表</a>
+        </p>
+        <h1 class="project-detail-title" id="project-title">检测项目</h1>
+        <div class="project-detail-content" id="project-body"></div>
+      </article>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-links">
+        <a href="about.html">关于我们</a>
+        <span>|</span>
+        <a href="projects.html">检测项目</a>
+        <span>|</span>
+        <a href="cert.html">认证备案</a>
+        <span>|</span>
+        <a href="news.html">新闻中心</a>
+        <span>|</span>
+        <a href="contact.html">联系我们</a>
+        <span>|</span>
+        <a href="index.html#copyright">版权声明</a>
+      </div>
+      <p class="copyright">
+        Copyright © 2026 重庆市计量质量检测研究院 版权所有
+      </p>
+    </footer>
+
+    <script>
+      (function () {
+        var ITEMS = [
+          {
+            title: "固体废弃物——浸出毒性检测",
+            body:
+              "<p>依据相关国家标准与行业规范，对固体废物及其浸出液进行毒性鉴别与浸出浓度测定，为无害化处置与环境管理提供数据支撑。样品预处理、浸出程序与检测因子可根据监管要求与客户指定方法执行。</p>",
+          },
+          {
+            title: "发光细菌法检测——废水急性毒性检测",
+            body:
+              "<p>采用发光细菌急性毒性试验方法，评价废水等样品对生物发光的抑制效应，用于快速筛查复合污染急性毒性水平，适用于排污监测、工艺比对与应急评估等场景。</p>",
+          },
+          {
+            title: "细胞毒性试验",
+            body:
+              "<p>在细胞水平评价受试物对细胞活力、增殖或形态的影响，为化学品安全性评价、医疗器械生物学评价及原料筛选提供体外毒性参考数据。</p>",
+          },
+          {
+            title: "微核试验",
+            body:
+              "<p>通过体内或体外微核试验检测染色体损伤与遗传毒性风险，是遗传毒理学评价中的常用指标之一，可服务于化学品登记、新材料评估等相关合规需求。</p>",
+          },
+          {
+            title: "食品毒理性测试",
+            body:
+              "<p>围绕食品及其相关产品开展毒理学评价试验设计、动物试验或替代方法验证的支持服务，协助评估暴露风险与符合食品安全技术规范要求。</p>",
+          },
+          {
+            title: "毒理实验概述",
+            body:
+              "<p>系统介绍毒理学试验类别、适用法规框架、样品要求与结论解读要点，帮助委托方选择合理的检测路径和时间安排。具体项目以合同与实施方案为准。</p>",
+          },
+          {
+            title: "急性经口经皮吸入实验",
+            body:
+              "<p>开展急性经口、急性经皮或急性吸入毒性试验，获得 LD<sub>50</sub> 或分类所需要的剂量-反应信息，用于化学品标签、运输分类及安全数据单等技术文件支持。</p>",
+          },
+          {
+            title: "化学品毒理性测试",
+            body:
+              "<p>面向工业化学品、试剂及中间体等提供急慢性毒性、致敏、遗传毒性等组合或单项毒理检测方案，匹配国内外常见法规列表与登记要求，具体参数以受理时方法确认为准。</p>",
+          },
+        ];
+
+        var params = new URLSearchParams(window.location.search);
+        var p = parseInt(params.get("p") || "0", 10);
+        var idx = p - 1;
+        var titleEl = document.getElementById("project-title");
+        var bodyEl = document.getElementById("project-body");
+
+        if (idx < 0 || idx >= ITEMS.length) {
+          titleEl.textContent = "未找到该项目";
+          bodyEl.innerHTML =
+            '<p class="not-found" style="margin:0">请从<a href="projects.html">检测项目</a>列表重新选择。</p>';
+          document.title = "检测项目 - 重庆市计量质量检测研究院";
+          return;
+        }
+
+        var item = ITEMS[idx];
+        titleEl.textContent = item.title;
+        bodyEl.innerHTML = item.body;
+        document.title = item.title + " - 重庆市计量质量检测研究院";
+      })();
+    </script>
+  </body>
+</html>
