@@ -24,6 +24,12 @@
       date: "2026年3月20日",
       model: "φ400（mm）",
     },
+    "2026-0810064149": {
+      company: "四川南方开创实业有限公司",
+      product: "消声器",
+      date: "2026年3月28日",
+      model: "500mm×300mmL=1000mm",
+    },
   };
 
   function normalizeReportNo(s) {
