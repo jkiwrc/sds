@@ -34,7 +34,7 @@
       company: "四川南方开创实业有限公司",
       product: "消声静压箱",
       date: "2026年3月28日",
-      model: "500mmx300mmL=1000mm",
+      model: "1000mm×800mm×630mm",
     },
   };
 
