@@ -109,19 +109,13 @@
         Copyright © 2026 重庆市计量质量检测研究院 版权所有
       </p>
     </footer>
-    <script src="site-path.js"></script>
+    <script src="reports.js?v=20260308"></script>
     <script>
-      loadReportsScript(function (err) {
+      (function () {
         var form = document.getElementById("query-form");
         var input = document.getElementById("report-no");
         var root = document.getElementById("report-result");
         if (!form || !input || !root) return;
-
-        if (err) {
-          root.innerHTML = reportsLoadErrorHtml();
-          root.classList.add("is-error");
-          return;
-        }
 
         function showMessage(html, isError) {
           root.classList.toggle("is-error", !!isError);
@@ -171,7 +165,7 @@
             runQuery(q, false);
           }
         })();
-      });
+      })();
     </script>
   </body>
 </html>

@@ -60,19 +60,12 @@
       </p>
     </footer>
 
-    <script src="site-path.js"></script>
+    <script src="reports.js?v=20260308"></script>
     <script>
-      loadReportsScript(function (err) {
-        var root = document.getElementById("report-root");
-        if (!root) return;
-
-        if (err) {
-          root.innerHTML = reportsLoadErrorHtml();
-          return;
-        }
-
+      (function () {
         var params = new URLSearchParams(window.location.search);
         var no = normalizeReportNo(params.get("no") || "");
+        var root = document.getElementById("report-root");
 
         if (!no) {
           root.innerHTML =
@@ -91,7 +84,7 @@
 
         root.innerHTML = renderReportTable(no, row);
         document.title = "报告 " + no + " - 重庆市计量质量检测研究院";
-      });
+      })();
     </script>
   </body>
 </html>
