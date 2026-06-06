@@ -55,6 +55,7 @@
         /* ignore */
       }
     }
+    s = s.replace(/[\u2010-\u2015\u2212\uFE58\uFE63\uFF0D]/g, "-");
     return s.replace(/\s+/g, "").trim();
   }
 
