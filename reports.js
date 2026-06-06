@@ -36,6 +36,12 @@
       date: "2026年3月28日",
       model: "1000mm×800mm×630mm",
     },
+    "2026-0810064159": {
+      company: "四川南方开创实业有限公司",
+      product: "消声弯头",
+      date: "2026年3月28日",
+      model: "400mm×200mm  R=250mm",
+    },
   };
 
   function normalizeReportNo(s) {
